@@ -17,8 +17,8 @@ with open('./days.csv', 'r') as csvfile:
             # `next` will simply skip over the header row in the csvfile
         next(csvfile)
             # We use the csv library to create a 'reader' of the file
-            # This reader patse through the csvfile and the headers
-            # and allow us to interact with it as a Python object
+            # This reader parses through the csvfile and the headers
+            # and allows us to interact with it as a Python object
         reader = csv.DictReader(csvfile, fieldnames)
             # This creates an empty dictionary to hold the final set of
             # data that we'll eventually dump into the JSON file
