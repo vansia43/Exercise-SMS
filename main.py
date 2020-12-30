@@ -18,7 +18,7 @@ def job():
     ## get today's date. and use that to look up which exersice to do.
     curday = datetime.now().strftime("%m-%d-%Y")
 
-    ## get data from days json file and pull up the activity for todays date.
+    ## get data from days json file and pull up the activity for today's date.
     with open('./days.json', 'r') as days:
         day = json.loads(days.read())
         for keyval in day:
@@ -38,7 +38,7 @@ def job():
     quoteBlock = ("Inspirational quote of the day\n" + quote+ " --said by " + author )
 
 
-    # get the youtube link of an exersice that needs a video to do
+    # get the youtube link of an exercise that needs a video to complete
     linkBlock = " "
     if activity == "barre":
         linkBlock = ("Here is a link to some youtube videos for "+activity+ " activity " +"https://www.youtube.com/results?search_query=barre+workout+20+minutes+" + " Enjoy your workout \n\n")
@@ -51,7 +51,7 @@ def job():
     body = (exerciseBlock+linkBlock+quoteBlock)
     print(body)
 
-    # contruct a message to send using twilio use the text as the body with the combinded messages
+    # construct a message to send using twilio use the text as the body with the combinded messages
     message = client.messages.create(
                               from_='+',
                               body = body,
@@ -61,11 +61,11 @@ def job():
 
 
 
-## scheudle a job to run at a certain interval this will then execute the job function
+## schedule a job to run at a certain interval this will then execute the job function
 # schedule.every(10).seconds.do(job)
 schedule.every().day.at("08:07").do(job)
 
-# create an infitine loop that will always run the service
+# create an infinite loop that will always run the service
 while True:
     schedule.run_pending()
     time.sleep(1)
