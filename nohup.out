@@ -1,7 +1,0 @@
-/Users/rajvansia/Documents/GitHub/exersicesms/main.py: line 2: import: command not found
-/Users/rajvansia/Documents/GitHub/exersicesms/main.py: line 3: import: command not found
-/Users/rajvansia/Documents/GitHub/exersicesms/main.py: line 4: import: command not found
-from: can't read /var/mail/datetime
-from: can't read /var/mail/twilio.rest
-/Users/rajvansia/Documents/GitHub/exersicesms/main.py: line 9: syntax error near unexpected token `('
-/Users/rajvansia/Documents/GitHub/exersicesms/main.py: line 9: `def job():'
