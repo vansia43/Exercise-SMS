@@ -28,7 +28,7 @@ def job():
                 dayWeek =  keyval['DayWeek']
                 dayTrainNum = int(daysTrained)
 
-    exerciseBlock = ("Hi Dani!! Here is your exercise plan for the day to keep you motivated!! \nToday is " + dayWeek +" "+ curday + ". You will be doing the following activity--" + activity + ". You have trained  " + daysTrained + " days so far!! \n\n" )
+    exerciseBlock = ("Hello! Here is your exercise plan for the day to keep you motivated! \nToday is " + dayWeek +",  "+ curday + ". You will be doing the following activity--" + activity + ". You have trained  " + daysTrained + " days so far! \n\n" )
 
     ## get the inspirational quote based on how many days trained so far.
     with open('./quotes.json', 'r') as quotes:
@@ -41,11 +41,11 @@ def job():
     # get the youtube link of an exercise that needs a video to complete
     linkBlock = " "
     if activity == "barre":
-        linkBlock = ("Here is a link to some youtube videos for "+activity+ " activity " +"https://www.youtube.com/results?search_query=barre+workout+20+minutes+" + " Enjoy your workout \n\n")
+        linkBlock = ("Here is a link to some YouTube videos for "+activity+ ": " +"https://www.youtube.com/results?search_query=barre+workout+20+minutes+" + " Enjoy your workout! \n\n")
     if activity == "yoga":
-        linkBlock = ("Here is a link to some youtube videos for "+activity+ " activity " +"https://www.youtube.com/results?search_query=yoga+workout+30+minutes+" + " Enjoy your workout \n\n")
+        linkBlock = ("Here is a link to some YouTube videos for "+activity+ ": " +"https://www.youtube.com/results?search_query=yoga+workout+30+minutes+" + " Enjoy your workout! \n\n")
     if activity == "HIIT":
-        linkBlock = ("Here is a link to some youtube videos for "+activity+ " activity " +"https://www.youtube.com/results?search_query=hiit+workout+15+minutes+" + " Enjoy your workout \n\n")
+        linkBlock = ("Here is a link to some YouTube videos for "+activity+ ": " +"https://www.youtube.com/results?search_query=hiit+workout+15+minutes+" + " Enjoy your workout! \n\n")
 
     # combine all of the messages to be ready to send with twilio
     body = (exerciseBlock+linkBlock+quoteBlock)
