@@ -15,10 +15,10 @@ def job():
     auth_token = ''
     client = Client(account_sid, auth_token)
 
-    ## get today's date. and use that to look up which exersice to do.
+    ## get today's date and use it to look up which exercise to do
     curday = datetime.now().strftime("%m-%d-%Y")
 
-    ## get data from days json file and pull up the activity for today's date.
+    ## get data from the days.json file and pull up the activity for today's date
     with open('./days.json', 'r') as days:
         day = json.loads(days.read())
         for keyval in day:
@@ -30,7 +30,7 @@ def job():
 
     exerciseBlock = ("Hello! Here is your exercise plan for the day to keep you motivated! \nToday is " + dayWeek +",  "+ curday + ". You will be doing the following activity--" + activity + ". You have trained  " + daysTrained + " days so far! \n\n" )
 
-    ## get the inspirational quote based on how many days trained so far.
+    ## get the inspirational quote based on how many days trained so far
     with open('./quotes.json', 'r') as quotes:
         file = json.loads(quotes.read())
         quote = file[dayTrainNum]['text']
@@ -51,7 +51,8 @@ def job():
     body = (exerciseBlock+linkBlock+quoteBlock)
     print(body)
 
-    # construct a message to send using twilio use the text as the body with the combinded messages
+    # construct a message to send using twilio 
+    # use the text as the body with the combined messages
     message = client.messages.create(
                               from_='+',
                               body = body,
@@ -61,7 +62,8 @@ def job():
 
 
 
-## schedule a job to run at a certain interval this will then execute the job function
+## schedule a job to run at a certain interval 
+# this will then execute the job function
 # schedule.every(10).seconds.do(job)
 schedule.every().day.at("08:07").do(job)
 
