@@ -44,8 +44,9 @@ You can schedule the job to run every day at a particular time. For example, you
 > `schedule.every().day.at("08:07").do(job)`
 
 An infinite loop is set that can always run the service with the following commands:
->  `while True:`
 >
->    `schedule.run_pending()`
+>       while True:
 >
->    `time.sleep(1)`
+>         schedule.run_pending()
+>
+>         time.sleep(1)
