@@ -37,7 +37,7 @@ All elements are then combined to construct the message or `body`. The following
 
 ## Scheduling a Job
 You can schedule the job to run every day at a particular time. For example, you can set the job to send SMS at 8:00 AM:
-> `schedule.every().day.at("08:07").do(job)`
+> `schedule.every().day.at("08:00").do(job)`
 
 An infinite loop is set that can always run the service with the following commands:
 >
