@@ -16,7 +16,14 @@ First, create the [.csv file](days.csv) with the date, day of the week, activity
 ## Quotes JSON
 You can download a [free inspirational quotes](https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373) JSON file for the inspirational messages that are sent with each SMS.
 ## Constructing a Message
-The [main.py](main.py) file uses both JSON files and the Twilio API to construct the SMS message. First, you need to set your Twilio API key that you obtained when creating your account. Then, the script calls the `days.json` file and uses the `if curday == keyval['Date']:` command to pull the activity that is associated with today's date. The `exerciseBlock` text is then constructed.
+The [main.py](main.py) file uses both JSON files and the Twilio API to construct the SMS message. First, you need to set your Twilio API key that you obtained when creating your account. 
+>        account_sid = ''
+>        auth_token = ''
+>        client = Client(account_sid, auth_token)
+
+Enter your Twilio account ID and authorization token. This creates a client for your to have access to the Twilio API.
+
+Then, the script calls the `days.json` file and uses the `if curday == keyval['Date']:` command to pull the activity that is associated with today's date. The `exerciseBlock` text is then constructed.
 > `("Hello! Here is your exercise plan for the day to keep you motivated! \nToday is " + dayWeek +",  "+ curday + ". You will be doing the following activity--" + activity + ". You have trained  " + daysTrained + " days so far! \n\n" )`
 
 Each of the elements in the `exerciseBlock` is derived from the `days.json` file.
@@ -26,7 +33,7 @@ The `quoteBlock` is then constructed. All elements are derived from the `quotes.
 
 Finally, the `linkBlock` is developed, which checks to see if the `activity` element is either **barre**, **yoga**, or **HIIT**. A predefined YouTube search such as "HIIT workout 15 minutes" is returned. 
 
-All elements are then combined to construct the message or `body` element. The following command sends the message while replacing the `+` in the `to` element with the recipient's number.
+All elements are then combined to construct the message or `body` element. The `client.messages.create` function uses the Twilio API to send the message. Replace the `+` in the `to` element with the recipient's number. Replace the `+` in the `from` element with your Twilio-assigned number.
 >
 >      message = client.messages.create(
 >                                from_='+',
