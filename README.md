@@ -29,13 +29,9 @@ Finally, the `linkBlock` is developed, which checks to see if the `activity` ele
 All elements are then combined to construct the message or `body`. The following command sends the message while replacing the `+` in the `to` element with the recipient's number.
 >
 >      message = client.messages.create(
->
 >                                from_='+',
->
 >                                body = body,
->
 >                                to ='+'
->
 >                             )
 
 
@@ -46,7 +42,5 @@ You can schedule the job to run every day at a particular time. For example, you
 An infinite loop is set that can always run the service with the following commands:
 >
 >       while True:
->
 >         schedule.run_pending()
->
 >         time.sleep(1)
