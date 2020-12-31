@@ -16,5 +16,34 @@ First, I created a [.csv file](days.csv) with the date, day of the week, activit
 ## Quotes JSON
 I downloaded a [free inspirational quotes](https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373) JSON file for the inspirational messages that would be sent with each SMS.
 ## Constructing a Message
-xx
+The [main.py](main.py) file uses both JSON files and the Twilio API to construct the SMS message. First you need to set your Twilio API key that you obtained when creating your account. Then, the module calls the `days.json` file and uses the `if curday == keyval['Date']:` command to pull the activity that is associated with today's date. The `exerciseBlock` text is then constructed.
+> `("Hello! Here is your exercise plan for the day to keep you motivated! \nToday is " + dayWeek +",  "+ curday + ". You will be doing the following activity--" + activity + ". You have trained  " + daysTrained + " days so far! \n\n" )`
+
+Each of the elements in the `exerciseBlock` are derived from the days.json file.
+
+The `quoteBlock` is then constructed. All elements are derived from the quotes.json file.
+>`("Inspirational quote of the day\n" + quote+ " --said by " + author )`
+
+Finally, the `linkBlock` is developed, which checks to see if the `activity` element is either **barre**, **yoga**, or **HIIT**. A predefined YouTube search such as "HIIT workout 15 minutes" is returned. 
+
+All elements are then combined to construct the message or `body`. The following command send the message while replacing the `+` in the `to` element with the recipient's number.
+>
+>      message = client.messages.create(
+>
+>                                from_='+',
+>
+>                                body = body,
+>
+>                                to ='+'
+>
+>                             )
+
+
 ## Scheduling a Job
+You can schedule the job to run everyday at a particular time. For example, you can set the job to send SMS at 8:00 AM:
+> `schedule.every().day.at("08:07").do(job)`
+
+An infinite loop is set that can always run the service with the following commands:
+> `while True:
+>   schedule.run_pending()
+>   time.sleep(1)`
