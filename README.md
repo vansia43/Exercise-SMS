@@ -12,9 +12,9 @@ You can use this module to send you exercise reminders and motivation everyday. 
 ## Prerequisites
 This module requires a [Twilio license](https://www.twilio.com/pricing). You can obtain a trial version of Twilio. Note that your trial credit will be charged each time that you use the service.
 ## Converting Days to JSON
-xx
+First, I created a [.csv file](days.csv) with the date, day of the week, activity, and days trained. This file was easy to develop as I chose seven activities that would repeat each week. I used a [.csv to JSON](convert_training_days.py) module to convert my file to a [JSON format](days.json). The module takes the .csv file and restructures the data so that it exists as a set of date keys with the value as a dictionary of the different elements from the .csv file.
 ## Quotes JSON
-xx
+I downloaded a [free inspirational quotes](https://forum.freecodecamp.org/t/free-api-inspirational-quotes-json-with-code-examples/311373) JSON file for the inspirational messages that would be sent with each SMS.
 ## Constructing a Message
 xx
 ## Scheduling a Job
