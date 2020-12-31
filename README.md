@@ -7,7 +7,7 @@ You can use this Python script to send exercise reminders and motivation every d
 >
 > You have trained 4 days so far. 
 >
-> Here is a link to some YouTube videos for HIIT: https://www.youtube.com/results?search_query=hiit+workout+15+minutes. Enjoy your workout! `
+> Here is a link to some YouTube videos for HIIT: https://www.youtube.com/results?search_query=hiit+workout+15+minutes. Enjoy your workout! 
 # Script Logic
 ## Prerequisites
 This program requires a [Twilio license](https://www.twilio.com/pricing). You can obtain a trial version of Twilio. Note that your trial credit will be charged each time that you use the service.
