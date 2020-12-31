@@ -9,12 +9,12 @@ fieldnames = (
 )
 
 # Open both files so we can interact with them
-# Using the `with` keyword lets us close the files automatically after these
-# with blocks end and we're done writing and reading the files
+# Using the `with` keyword lets us close the files automatically after 
+# we're done writing and reading them
 
 with open('./days.csv', 'r') as csvfile:
     with open('./days.json', 'w') as jsonfile:
-            # `next` will simply skip over the header row in the csvfile
+            # `next` we'll simply skip over the header row in the csvfile
         next(csvfile)
             # We use the csv library to create a 'reader' of the file
             # This reader parses through the csvfile and the headers
@@ -30,7 +30,6 @@ with open('./days.csv', 'r') as csvfile:
                 # We also restructure the data so that it exists as
                 # a set of date keys with the value as a dictionary of
                 # different data elements from the CSV.
-                # "Date","Open","High","Low","Close","Volume","Adj Close"
             final_data = {
                     "Date": row["Date"],
                     "DayWeek": row["DayoftheWeek"],
